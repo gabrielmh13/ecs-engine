@@ -1,0 +1,41 @@
+# Build
+Debug/
+Release/
+x64/
+x86/
+bin/
+build/
+out/
+
+# Visual Studio cache
+.vs/
+
+
+# Visual Studio junk
+*.obj
+*.o
+*.pdb
+*.idb
+*.ipch
+*.VC.db
+*.VC.opendb
+*.tlog
+*.log
+*.cache
+*.ilk
+
+# Generated files
+*.exe
+*.dll
+*.lib
+*.exp
+
+# VS project user-specific
+*.user
+*.suo
+*.vcxproj.*
+!*.vcxproj   # keep project file, ignore extras
+
+# CMake (future-proof)
+CMakeCache.txt
+CMakeFiles/
