@@ -138,6 +138,7 @@
     <ClCompile Include="src\core\Application.cpp" />
     <ClCompile Include="src\core\Time.cpp" />
     <ClCompile Include="src\ecs\Registry.cpp" />
+    <ClCompile Include="src\ecs\View.hpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>

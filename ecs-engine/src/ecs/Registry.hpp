@@ -5,6 +5,7 @@
 
 #include "Entity.hpp"
 #include "ComponentPool.hpp"
+#include "View.hpp"
 
 namespace Engine::ECS {
 	class Registry {
@@ -12,6 +13,13 @@ namespace Engine::ECS {
 		Entity CreateEntity();
 		void DestroyEntity(Entity entity);
 		bool IsEntityValid(Entity entity) const;
+
+		uint32_t GetGeneration(uint32_t entityID) {
+			if (entityID >= m_Generations.size()) {
+				return 0;
+			}
+			return m_Generations[entityID];
+		}
 
 		template<typename T>
 		T& AddComponent(Entity entity) {
@@ -41,6 +49,11 @@ namespace Engine::ECS {
 		void RemoveComponent(Entity entity) {
 			auto &pool = GetPool<T>();
 			pool.Remove(entity.id);
+		}
+
+		template<typename... Components>
+		auto View() {
+			return Engine::ECS::View<Components...>(*this, GetPool<Components>()...);
 		}
 	private:
 		std::vector<uint32_t> m_Generations;
