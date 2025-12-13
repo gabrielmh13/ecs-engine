@@ -13,13 +13,7 @@ namespace Engine::ECS {
 		Entity CreateEntity();
 		void DestroyEntity(Entity entity);
 		bool IsEntityValid(Entity entity) const;
-
-		uint32_t GetGeneration(uint32_t entityID) {
-			if (entityID >= m_Generations.size()) {
-				return 0;
-			}
-			return m_Generations[entityID];
-		}
+		uint32_t GetGeneration(uint32_t entityID) const;
 
 		template<typename T>
 		T& AddComponent(Entity entity) {

@@ -35,4 +35,12 @@ namespace Engine::ECS {
 		uint32_t id = entity.id;
 		return id < m_Generations.size() && m_Generations[id] == entity.generation;
 	}
+
+	uint32_t Registry::GetGeneration(uint32_t entityID) const {
+		if (entityID >= m_Generations.size()) {
+			return 0;
+		}
+
+		return m_Generations[entityID];
+	}
 }
